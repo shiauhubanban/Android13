@@ -57,6 +57,8 @@ public class MyService extends Service {
         @Override
         public void run() {
             Log.v("shine","i="+i ++);
+            Intent it = new Intent("shine");
+            sendBroadcast(it);
         }
     }
 }
