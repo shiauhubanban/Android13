@@ -9,16 +9,17 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="start service"
-        android:onClick="start"
+        android:text="start Service"
+        android:onClick="startService"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="stop service"
-        android:onClick="stop"
+        android:text="stop Service"
+        android:onClick="stopService"
         />
     <TextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
