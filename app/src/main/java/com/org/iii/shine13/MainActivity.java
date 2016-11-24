@@ -8,15 +8,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private boolean isStart;
     private MyReciver receiver;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        textView = (TextView)findViewById(R.id.tv);
 
         receiver = new MyReciver();
         IntentFilter filter = new IntentFilter();
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.v("shine","got it");
+            String mesg = intent.getStringExtra("data"); //螢幕顯示
+            textView.setText(mesg);
         }
     }
 }

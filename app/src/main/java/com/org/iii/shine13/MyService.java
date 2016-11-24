@@ -34,9 +34,11 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        boolean isStart = intent.getBooleanExtra("isstart",false);
-        if (isStart){
-            i = intent.getIntExtra("value",-100);
+        if (intent != null) {
+            boolean isStart = intent.getBooleanExtra("isstart", false);
+            if (isStart) {
+                i = intent.getIntExtra("value", -100);
+            }
         }
 
         //Log.v("shine","onStartCommand()");
@@ -56,8 +58,9 @@ public class MyService extends Service {
     private class MyTask extends TimerTask{
         @Override
         public void run() {
-            Log.v("shine","i="+i ++);
+            //Log.v("shine","i="+i ++);
             Intent it = new Intent("shine");
+            it.putExtra("data","i="+i ++); //螢幕顯示
             sendBroadcast(it);
         }
     }
