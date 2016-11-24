@@ -12,6 +12,7 @@ public class MyService extends Service {
     private Timer timer;
     private int i ;
 
+
     public MyService() {
     }
 
@@ -19,6 +20,7 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         //throw new UnsupportedOperationException("Not yet implemented");
+
         return null;
     }
 
@@ -32,6 +34,11 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        boolean isStart = intent.getBooleanExtra("isstart",false);
+        if (isStart){
+            i = intent.getIntExtra("value",-100);
+        }
+
         //Log.v("shine","onStartCommand()");
         return super.onStartCommand(intent, flags, startId);
     }
